@@ -22,8 +22,8 @@ class _SplashState extends State<Splash> {
   }
 
   void isLogin()async {
-    SharedPreferences sp = await SharedPreferences.getInstance();
-    bool? isLogin = sp.getBool('isLogin') ?? false;
+    SharedPreferences data = await SharedPreferences.getInstance();
+    bool? isLogin = data.getBool('isLogin') ?? false;
 
     if(isLogin){
       Timer(const Duration(seconds: 5), () {
