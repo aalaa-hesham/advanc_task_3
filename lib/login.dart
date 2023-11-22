@@ -14,12 +14,11 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final emailController = TextEditingController();
+  late TextEditingController emailController;
   final passwordController = TextEditingController();
   void navigateToHome() async {
     SharedPreferences data = await SharedPreferences.getInstance();
     data.setString('email', emailController.text.toString());
-    data.setString('UserType', 'student');
     data.setBool('isLogin', true);
 
     Navigator.pushReplacement(
@@ -29,6 +28,11 @@ class _LoginState extends State<Login> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    emailController = TextEditingController();
+  }
+
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
@@ -79,6 +83,7 @@ class _LoginState extends State<Login> {
                           TextField(
                             controller: emailController,
                             decoration: InputDecoration(
+                              label: Text("Email"),
                               hintText: "Your Email",
                               icon: Icon(Icons.mail, color: Color(0xFF3F3D56)),
                               border: InputBorder.none,
@@ -94,8 +99,9 @@ class _LoginState extends State<Login> {
                             controller: passwordController,
                             obscureText: true,
                             decoration: InputDecoration(
-                              hintText: "passwordController",
-                              icon: Icon(Icons.password,
+                              label: Text("password"),
+                              hintText: "password",
+                              icon: Icon(Icons.visibility_off,
                                   color: Color(0xFF3F3D56)),
                               border: InputBorder.none,
                               focusedBorder: OutlineInputBorder(

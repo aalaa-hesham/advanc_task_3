@@ -14,31 +14,30 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-   @override
+  @override
   void initState() {
     super.initState();
 
     isLogin();
   }
 
-  void isLogin()async {
+  void isLogin() async {
     SharedPreferences data = await SharedPreferences.getInstance();
     bool? isLogin = data.getBool('isLogin') ?? false;
 
-    if(isLogin){
+    if (isLogin) {
       Timer(const Duration(seconds: 5), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Home()));
-    });
-
-    }else{
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Home()));
+      });
+    } else {
       Timer(const Duration(seconds: 3), () {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => const Login()));
-    });
-
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Login()));
+      });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     // Timer(const Duration(seconds: 3), () {
