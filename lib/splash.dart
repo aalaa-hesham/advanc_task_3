@@ -22,19 +22,17 @@ class _SplashState extends State<Splash> {
   }
 
   void isLogin() async {
+    await Future.delayed(Duration(seconds: 1));
+
     SharedPreferences data = await SharedPreferences.getInstance();
     bool? isLogin = data.getBool('isLogin') ?? false;
 
     if (isLogin) {
-      Timer(const Duration(seconds: 5), () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Home()));
-      });
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const Home()));
     } else {
-      Timer(const Duration(seconds: 3), () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Login()));
-      });
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => const Login()));
     }
   }
 

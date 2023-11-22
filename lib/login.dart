@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:advanc_task_3/home.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Login extends StatefulWidget {
@@ -47,17 +46,17 @@ class _LoginState extends State<Login> {
         scrollDirection: Axis.vertical,
         child: Stack(
           children: [
-            Positioned(
-                top: 0,
-                child: Opacity(
-                  opacity: 0.7,
-                  child: SvgPicture.asset(
-                    "assets/wave.svg",
-                    color: Color.fromARGB(255, 68, 2, 18),
-                    height: 250,
-                    width: 100,
-                  ),
-                )),
+            // Positioned(
+            //     top: 0,
+            //     child: Opacity(
+            //       opacity: 0.7,
+            //       child: SvgPicture.asset(
+            //         "assets/wave.svg",
+            //         color: Color.fromARGB(255, 68, 2, 18),
+            //         height: 250,
+            //         width: 100,
+            //       ),
+            //     )),
             Column(
               children: [
                 SizedBox(
@@ -217,16 +216,16 @@ class _LoginState extends State<Login> {
                 )
               ],
             ),
-            Positioned(
-                bottom: 0,
-                child: Opacity(
-                    opacity: 0.1,
-                    child: SvgPicture.asset(
-                      "assets/wave2.svg",
-                      color: Color.fromARGB(255, 114, 6, 33),
-                      height: 300,
-                      width: 100,
-                    )))
+            // Positioned(
+            //     bottom: 0,
+            //     child: Opacity(
+            //         opacity: 0.1,
+            //         child: SvgPicture.asset(
+            //           "assets/wave2.svg",
+            //           color: Color.fromARGB(255, 114, 6, 33),
+            //           height: 300,
+            //           width: 100,
+            //         )))
           ],
         ),
       ),
